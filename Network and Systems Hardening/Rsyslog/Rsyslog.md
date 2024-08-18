@@ -1,8 +1,3 @@
----
-geometry: margin=0.5in  
-fontsize: 11pt  
-
----
 <div align="center">
 
 # **Rsyslog**
