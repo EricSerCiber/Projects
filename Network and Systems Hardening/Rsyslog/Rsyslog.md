@@ -8,7 +8,7 @@
 
 ---
 
-![Imagen de Portada](Rsyslog1.png)
+![Imagen de Portada](../Rsyslog/Images/Rsyslog1.png)
 
 ---
 
@@ -42,14 +42,14 @@ Nuestro contenedor srv es quien hará de servidor centralizado de logs y el cont
 #### Configuración Rsyslog Servidor
 
 
-![Imagen de Portada](Rsyslog2.png)
+![Imagen de Portada](../Rsyslog/Images/Rsyslog2.png)
 
 <p>Esta configuración establece Rsyslog para recibir registros tanto por TCP como por UDP, con configuraciones específicas para comunicación segura por TCP usando cifrado TLS y autenticación basada en certificados, así como definiendo dónde deben estar ubicadas las claves y certificados de cifrado en el sistema de archivos.</p>
 
 #### Configuración Rsyslog Cliente
 
 
-![Imagen de Portada](Rsyslog3.png)
+![Imagen de Portada](../Rsyslog/Images/Rsyslog3.png)
 
 <p>Esta configuración del cliente Rsyslog está preparada para recibir mensajes de un host remoto a través de UDP</p>
 
@@ -57,11 +57,11 @@ Nuestro contenedor srv es quien hará de servidor centralizado de logs y el cont
 
 <p>Para ello, desde el cliente usaremos logger para enviarnos un mensaje de prueba.</p>
 
-![Imagen de Portada](Rsyslog4.png)
+![Imagen de Portada](../Rsyslog/Images/Rsyslog4.png)
 
 <p>Ahora desde el servidor miraremos si nos ha llegado el mensaje de prueba.</p>
 
-![Imagen de Portada](Rsyslog5.png)
+![Imagen de Portada](../Rsyslog/Images/Rsyslog5.png)
 
 <p>Podemos observar que ha llegado el mensaje correctamente.</p>
 
@@ -71,11 +71,11 @@ Nuestro contenedor srv es quien hará de servidor centralizado de logs y el cont
 
 #### Instalación de Nginx
 
-![Imagen de Portada](Rsyslog6.png)
+![Imagen de Portada](../Rsyslog/Images/Rsyslog6.png)
 
 #### Cambios en la configuración de Nginx
 
-![Imagen de Portada](Rsyslog7.png)
+![Imagen de Portada](../Rsyslog/Images/Rsyslog7.png)
 
 La línea **access_log /var/log/nginx/access.log;** habilita el registro de accesos. Nginx escribirá los registros de acceso en el archivo **/var/log/nginx/access.log**, esto incluye información sobre cada solicitud que el servidor web recibe, como la dirección IP del cliente, hora de la solicitud, recurso solicitado y más.
 
@@ -87,14 +87,14 @@ Por otro lado, la línea **error_log /var/log/nginx/error.log;** habilita el reg
 
 <p>Vamos a hacer un curl al servidor web.</p>
 
-![Imagen de Portada](Rsyslog8.png)
+![Imagen de Portada](../Rsyslog/Images/Rsyslog8.png)
 
 <p>Comprobamos el archivo access.log.</p>
 
 **IP servidor: 172.18.0.3**
 **IP cliente: 172.18.0.2**
 
-![Imagen de Portada](Rsyslog9.png)
+![Imagen de Portada](../Rsyslog/Images/Rsyslog9.png)
 
 Prueba del funcionamiento en gif: **https://imgur.com/XE7GsKv**
 
@@ -102,7 +102,7 @@ Prueba del funcionamiento en gif: **https://imgur.com/XE7GsKv**
 
 <p>Para ello, vamos a hacer un curl al servidor con una ruta que no existe, con ello vamos a conseguir que nos de error.</p>
 
-![Imagen de Portada](Rsyslog10.png)
+![Imagen de Portada](../Rsyslog/Images/Rsyslog10.png)
 
 Prueba del funcionamiento en gif: **https://imgur.com/Khk7Pxr**
 
@@ -155,21 +155,21 @@ Si no hay cambios, simplemente dice que los archivos de registro son iguales.
 
 En la siguiente captura podemos observar cómo desde el cliente hago un curl y el script me detecta que ha cambiado.
 
-![Imagen de Portada](Rsyslog11.png)
+![Imagen de Portada](../Rsyslog/Images/Rsyslog11.png)
 
 En la siguiente captura lo mismo, pero esta vez con errors, lanzando un curl a una dirección no existente.
 
-![Imagen de Portada](Rsyslog12.png)
+![Imagen de Portada](../Rsyslog/Images/Rsyslog12.png)
 
 Ahora, vamos a borrar manualmente alguna línea de nuestros archivos **access.log** y **errors.log**, y así comprobar que nuestro script esta funcionando correctamente. 
 
 Voy a borrar la línea del medio.
 
-![Imagen de Portada](Rsyslog13.png)
+![Imagen de Portada](../Rsyslog/Images/Rsyslog13.png)
 
 Podemos observar que nos avisa de los que archivos de log han cambiado y nos dice que ha cambiado. Nos aparece el símbolo "**-**" que significa que se ha borrado.
 
-![Imagen de Portada](Rsyslog14.png)
+![Imagen de Portada](../Rsyslog/Images/Rsyslog14.png)
 
 # Registro de logs de Windows
 
@@ -179,15 +179,15 @@ Configuraremos el receiver, que va a ser nuestra máquina rsyslog que tenemos en
 
 **Rule Sets > Default Rule Set > ForwardSyslog > Rsyslog.**
 
-![Imagen de Portada](Rsyslog15.png)
+![Imagen de Portada](../Rsyslog/Images/Rsyslog15.png)
 
 Después nos dirigiremos a **Tools > Syslog Test Message** para enviar un mensaje para ver si está funcionando correctamente.
 
-![Imagen de Portada](Rsyslog16.png)
+![Imagen de Portada](../Rsyslog/Images/Rsyslog16.png)
 
 Con el comando **tail -f messages** podemos observar como al enviar el mensaje lo recibimos correctamente.
 
-![Imagen de Portada](Rsyslog17.png)
+![Imagen de Portada](../Rsyslog/Images/Rsyslog17.png)
 
 Funcionamiento en Gif: **https://imgur.com/LhGcjnd**
 
