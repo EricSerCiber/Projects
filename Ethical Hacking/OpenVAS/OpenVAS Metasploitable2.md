@@ -16,8 +16,7 @@
 
 # Indice
 
-- [**Escaneo de Vulnerabilidades con OpenVAS**](#escaneo-de-vulnerabilidades-con-openvas)
-- [Indice](#indice)
+- [Escaneo de Vulnerabilidades con OpenVAS](#escaneo-de-vulnerabilidades-con-openvas)
 - [Propósito del Proyecto](#propósito-del-proyecto)
 - [Descubrimiento de la IP de la Máquina Objetivo con NMAP](#descubrimiento-de-la-ip-de-la-máquina-objetivo-con-nmap)
 - [Instalación de OpenVAS](#instalación-de-openvas)
