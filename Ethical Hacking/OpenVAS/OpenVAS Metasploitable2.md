@@ -30,8 +30,7 @@
 El próposito de este proyecto es llevar a cabo una evaluación de seguridad utilizando OpenVAS para identificar vulnerabilidades en un entorno controlado. La máquina objetivo para esta evaluación es Metasploitable3, una máquina virtual diseñada específicamente para contener múltiples vulnerabilidades de seguridad. Este proyecto tiene dos objetivos principales:
 
 1. **Descubrimiento de la IP de la Máquina Objetivo:**
-   
-    Antes de iniciar el escaneo de vulnerabilidades será esencial identificar la dirección IP de la máquina Metasploitable3 en nuestra red local, para ello utilizaremos **nmap**. <br> <br>
+   Antes de iniciar el escaneo de vulnerabilidades será esencial identificar la dirección IP de la máquina Metasploitable3 en nuestra red local, para ello utilizaremos **nmap**. <br> <br>
 
 2. **Evaluación de Vulnerabilidades con OpenVAS:**
     Una vez identificada la IP de la máquina Metasploitable3, se procederá a realizar un escaneo exhaustivo utilizando OpenVAS. Este escaneo permitirá identificar vulnerabilidades conocidas en la máquina objetivo y evaluar la exposición de posibles amenazas. El análisis proporcionará información crítica sobre los puntos débiles de la máquina y ofrecerá recomendaciones para mitigar los riesgos encontrados.
