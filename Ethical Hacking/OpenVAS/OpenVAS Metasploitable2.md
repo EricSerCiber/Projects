@@ -20,12 +20,7 @@
 - [Propósito del Proyecto](#propósito-del-proyecto)
 - [Descubrimiento de la IP de la Máquina Objetivo con NMAP](#descubrimiento-de-la-ip-de-la-máquina-objetivo-con-nmap)
 - [Instalación de OpenVAS](#instalación-de-openvas)
-        - [GVM\_DATA](#gvm_data)
-        - [SCAP](#scap)
-        - [CERT](#cert)
 - [Evaluación de Vulnerabilidades con OpenVAS](#evaluación-de-vulnerabilidades-con-openvas)
-        - [Programación de Escaneos](#programación-de-escaneos)
-        - [Creación de Alertas](#creación-de-alertas)
 - [Conclusiones](#conclusiones)
 
 ---
