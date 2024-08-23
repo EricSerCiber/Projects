@@ -16,17 +16,11 @@
 
 # Indice
 
-- [**Escaneo de Vulnerabilidades con OpenVAS**](#escaneo-de-vulnerabilidades-con-openvas)
-- [Indice](#indice)
+- [Escaneo de Vulnerabilidades con OpenVAS](#escaneo-de-vulnerabilidades-con-openvas)
 - [Propósito del Proyecto](#propósito-del-proyecto)
 - [Descubrimiento de la IP de la Máquina Objetivo con NMAP](#descubrimiento-de-la-ip-de-la-máquina-objetivo-con-nmap)
 - [Instalación de OpenVAS](#instalación-de-openvas)
-        - [GVM\_DATA](#gvm_data)
-        - [SCAP](#scap)
-        - [CERT](#cert)
 - [Evaluación de Vulnerabilidades con OpenVAS](#evaluación-de-vulnerabilidades-con-openvas)
-        - [Programación de Escaneos](#programación-de-escaneos)
-        - [Creación de Alertas](#creación-de-alertas)
 - [Conclusiones](#conclusiones)
 
 ---
@@ -36,8 +30,7 @@
 El próposito de este proyecto es llevar a cabo una evaluación de seguridad utilizando OpenVAS para identificar vulnerabilidades en un entorno controlado. La máquina objetivo para esta evaluación es Metasploitable3, una máquina virtual diseñada específicamente para contener múltiples vulnerabilidades de seguridad. Este proyecto tiene dos objetivos principales:
 
 1. **Descubrimiento de la IP de la Máquina Objetivo:**
-   
-    Antes de iniciar el escaneo de vulnerabilidades será esencial identificar la dirección IP de la máquina Metasploitable3 en nuestra red local, para ello utilizaremos **nmap**. <br> <br>
+   Antes de iniciar el escaneo de vulnerabilidades será esencial identificar la dirección IP de la máquina Metasploitable3 en nuestra red local, para ello utilizaremos **nmap**. <br> <br>
 
 2. **Evaluación de Vulnerabilidades con OpenVAS:**
     Una vez identificada la IP de la máquina Metasploitable3, se procederá a realizar un escaneo exhaustivo utilizando OpenVAS. Este escaneo permitirá identificar vulnerabilidades conocidas en la máquina objetivo y evaluar la exposición de posibles amenazas. El análisis proporcionará información crítica sobre los puntos débiles de la máquina y ofrecerá recomendaciones para mitigar los riesgos encontrados.
