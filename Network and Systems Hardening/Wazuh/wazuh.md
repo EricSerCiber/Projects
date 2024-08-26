@@ -12,9 +12,6 @@
 ---
 
 # Indice
-- [**Implementación y Pruebas de Seguridad con Wazuh**](#implementación-y-pruebas-de-seguridad-con-wazuh)
-  - [**Instalación, Monitorización y Evaluación**](#instalación-monitorización-y-evaluación)
-- [Indice](#indice)
 - [Introducción](#introducción)
   - [Objetivos del proyecto](#objetivos-del-proyecto)
 - [Instalación de Wazuh](#instalación-de-wazuh)
