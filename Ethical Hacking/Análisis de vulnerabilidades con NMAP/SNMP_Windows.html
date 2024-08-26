@@ -1,0 +1,845 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html xmlns:fo="http://www.w3.org/1999/XSL/Format">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<!--generated with nmap.xsl - version 0.9c by Benjamin Erb - http://www.benjamin-erb.de/nmap_xsl.php --><style type="text/css">
+/* stylesheet print */
+@media print
+{
+  #menu {
+    display:none;
+  }
+
+  body {
+    font-family: Verdana, Helvetica, sans-serif;
+  }
+  
+  h1 {
+    font-size: 13pt;
+    font-weight:bold;
+    margin:4pt 0pt 0pt 0pt;
+    padding:0;
+  }
+
+  h2 {
+    font-size: 12pt;
+    font-weight:bold;
+    margin:3pt 0pt 0pt 0pt;
+    padding:0;
+  }
+
+  h3, a:link, a:visited {
+    font-size: 9pt;
+    font-weight:bold;
+    margin:1pt 0pt 0pt 20pt;
+    padding:0;
+    text-decoration: none;
+    color: #000000;
+  }
+
+  p,ul {
+    font-size: 9pt;
+    margin:1pt 0pt 8pt 40pt;
+    padding:0;
+    text-align:left;
+  }
+
+  li {
+    font-size: 9pt;
+    margin:0;
+    padding:0;
+    text-align:left;
+  }
+
+  table {
+    margin:1pt 0pt 8pt 40pt;
+    border:0px;
+    width:90%
+  }
+
+  td {
+    border:0px;
+    border-top:1px solid black;
+    font-size: 9pt;
+  }
+
+  .head td {
+    border:0px;
+    font-weight:bold;
+    font-size: 9pt;
+  }
+  .noprint { display: none; }
+}
+
+/* stylesheet screen */
+@media screen
+{
+  body {
+    font-family: Verdana, Helvetica, sans-serif;
+    margin: 0px;
+    background-color: #FFFFFF;
+    color: #000000;
+    text-align: center;
+  }
+
+  #container {
+    text-align:left;
+    margin: 10px auto;
+    width: 90%;
+  }
+
+  h1 {
+    font-family: Verdana, Helvetica, sans-serif;
+    font-weight:bold;
+    font-size: 14pt;
+    color: #FFFFFF;
+    background-color:#2A0D45;
+    margin:10px 0px 0px 0px;
+    padding:5px 4px 5px 4px;
+    width: 100%;
+    border:1px solid black;
+    text-align: left;
+  }
+
+  h2 {
+    font-family: Verdana, Helvetica, sans-serif;
+    font-weight:bold;
+    font-size: 11pt;
+    color: #000000;
+    margin:30px 0px 0px 0px;
+    padding:4px;
+    width: 100%;
+    background-color:#F0F8FF;
+    text-align: left;
+  }
+
+  h2.green {
+    color: #000000;
+    background-color:#CCFFCC;
+    border-color:#006400;
+  }
+
+  h2.red {
+    color: #000000;
+    background-color:#FFCCCC;
+    border-color:#8B0000;
+  }
+   
+  h3 {
+    font-family: Verdana, Helvetica, sans-serif;
+    font-weight:bold;
+    font-size: 10pt;
+    color:#000000;
+    background-color: #FFFFFF;
+    width: 75%;
+    text-align: left;
+  }
+
+  p {
+    font-family: Verdana, Helvetica, sans-serif;
+    font-size: 8pt;
+    color:#000000;
+    background-color: #FFFFFF;
+    width: 75%;
+    text-align: left;
+  }
+
+  p i {
+    font-family: Verdana, Helvetica, sans-serif;
+    font-size: 8pt;
+    color:#000000;
+    background-color: #CCCCCC;
+  }
+
+  ul {
+    font-family: Verdana, Helvetica, sans-serif;
+    font-size: 8pt;
+    color:#000000;
+    background-color: #FFFFFF;
+    width: 75%;
+    text-align: left;
+  }
+
+  a {
+    font-family: Verdana, Helvetica, sans-serif;
+    text-decoration: none;
+    font-size: 8pt;
+    color:#000000;
+    font-weight:bold;
+    background-color: #FFFFFF;
+    color: #000000;
+  }
+
+  li a {
+    font-family: Verdana, Helvetica, sans-serif;
+    text-decoration: none;
+    font-size: 10pt;
+    color:#000000;
+    font-weight:bold;
+    background-color: #FFFFFF;
+    color: #000000;
+  }
+
+  a:hover {
+    text-decoration: underline;
+  }
+
+  a.up {
+      color:#006400;
+  }
+
+  table {
+    width: 80%;
+    border:0px;
+    color: #000000;
+    background-color: #000000;
+    margin:10px;
+  }
+
+  tr {
+    vertical-align:top;
+    font-family: Verdana, Helvetica, sans-serif;
+    font-size: 8pt;
+    color:#000000;
+    background-color: #FFFFFF;
+  }
+
+  tr.head {
+    background-color: #E1E1E1;
+    color: #000000;
+    font-weight:bold;
+  }
+
+  tr.open {
+    background-color: #CCFFCC;
+    color: #000000;
+  }
+	
+  tr.script {
+    background-color: #EFFFF7;
+    color: #000000;
+  }
+
+  tr.filtered {
+    background-color: #F2F2F2;
+    color: #000000;
+  }
+
+  tr.closed {
+    background-color: #F2F2F2;
+    color: #000000;
+  }
+    
+  td {
+    padding:2px;
+  }
+        
+  #menu li {
+    display         : inline;
+    margin          : 0;
+    /*margin-right    : 10px;*/
+    padding         : 0;
+    list-style-type : none;
+  }    
+ 
+  #menubox {
+    position: fixed;
+    bottom: 0px;
+    right: 0px;
+    width: 120px;
+  }
+  
+  
+  
+  /* This section handle's IE's refusal to honor the fixed CSS attribute */
+  
+  * html div#menubox {
+    position: absolute;
+    top:expression(eval(
+      document.compatMode && document.compatMode=='CSS1Compat') ?
+      documentElement.scrollTop+(documentElement.clientHeight-this.clientHeight) 
+      : document.body.scrollTop +(document.body.clientHeight-this.clientHeight));
+  }
+  /* This fixes the jerky effect when scrolling in IE*/
+  * html,* html body {
+    background: #fff url(nosuchfile) fixed;
+  }
+
+  
+ 
+  .up {
+    color: #000000;
+    background-color:#CCFFCC;
+  }
+  
+  .down {
+    color:#626262;
+    background-color: #F2F2F2;
+  }
+
+  .print_only { display: none; }
+  .hidden { display: none; }
+  .unhidden { display: block; }
+  
+}
+</style>
+<title>Nmap Scan Report - Scanned at Thu Jan 18 14:48:23 2024</title>
+<script type="text/javascript">
+     
+      
+                
+      function toggle(divID) {
+        var item = document.getElementById(divID);
+        if (item) {
+          item.className=(item.className=='hidden')?'unhidden':'hidden';
+        }
+      }
+           
+      function togglePorts(tableID,portState) {
+        var table = document.getElementById(tableID);    
+        var tbody = table.getElementsByTagName("tbody")[0];
+        var rows = tbody.getElementsByTagName("tr");
+        for (var i=0; i < rows.length; i++) {
+          var value = rows[i].getElementsByTagName("td")[2].firstChild.nodeValue;
+          if (value == portState) {
+            rows[i].style.display = (rows[i].style.display == 'none')?'':'none';
+          }
+        }
+      }
+      
+      function toggleAll(portState) {
+        var allTables = document.getElementsByTagName("table");
+        for (var c=0; c < allTables.length; c++) {
+          if (allTables[c].id != "") {
+            togglePorts(allTables[c].id, portState)
+          }
+        }
+      }
+      
+      function init (){
+        toggleAll('closed');
+        toggleAll('filtered');     
+      }     
+            
+      window.onload = init; 
+      
+      
+    
+    </script>
+</head>
+<body>
+<a name="top"></a><div id="container">
+<h1>Nmap Scan Report - Scanned at Thu Jan 18 14:48:23 2024</h1>
+<ul id="menu">
+<li><a href="#scansummary">Scan Summary</a></li>
+<li> | <a href="#host_192_168_56_102" class="up">192.168.56.102</a>
+</li>
+</ul>
+<a name="scansummary"></a><hr class="print_only">
+<h2>Scan Summary</h2>
+<p>
+      Nmap 7.94SVN was initiated at Thu Jan 18 14:48:23 2024 with these arguments:<br><i>nmap -sU -p 161 -oX snmpWindows.xml --script=snmp-hh3c-logins,snmp-netstat,snmp-processes,snmp-sysdescr,snmp-win32-shares,snmp-win32-services [--stylesheet=https://svn.nmap.org/nmap/docs/nmap.xsl] 192.168.56.102</i><br></p>
+<p>
+    Verbosity: 0; Debug level 0</p>
+<p>Nmap done at Thu Jan 18 14:48:23 2024; 1 IP address (1 host up) scanned in 1.03 seconds</p>
+<hr class="print_only">
+<a name="host_192_168_56_102"></a><h2 class="up">192.168.56.102<span class="print_only">(online)</span>
+</h2>
+<div id="hostblock_192.168.56.102" class="unhidden">
+<h3>Address</h3>
+<ul>
+<li>192.168.56.102
+            (ipv4)
+          </li>
+<li>08:00:27:D7:CC:D8 - Oracle VirtualBox virtual NIC 
+            (mac)
+          </li>
+</ul>
+
+
+
+<h3>Ports</h3>
+<table id="porttable_192.168.56.102" cellspacing="1">
+<tr class="head">
+<td colspan="2">Port</td>
+<td>State 
+          <a href="javascript:togglePorts('porttable_192.168.56.102','closed');"><span class="noprint"><small> (toggle closed [0] </small></span></a><a href="javascript:togglePorts('porttable_192.168.56.102','filtered');"><span class="noprint"><small> | filtered [0])</small></span></a>
+</td>
+<td>Service</td>
+<td>Reason</td>
+<td>Product</td>
+<td>Version</td>
+<td>Extra info</td>
+</tr>
+<tr class="open">
+<td>161</td>
+<td>udp</td>
+<td>open</td>
+<td>snmp </td>
+<td>udp-response</td>
+<td> </td>
+<td> </td>
+<td> </td>
+</tr>
+<tr class="script">
+<td></td>
+<td>snmp-sysdescr </td>
+<td colspan="6"><pre>Hardware: Intel64 Family 6 Model 94 Stepping 3 AT/AT COMPATIBLE - Software: Windows Version 6.1 (Build 7601 Multiprocessor Free)
+  System uptime: 54m57.60s (329760 timeticks) </pre></td>
+</tr>
+<tr class="script">
+<td></td>
+<td>snmp-processes </td>
+<td colspan="6"><pre>
+  1: 
+    Name: System Idle Process
+  4: 
+    Name: System
+  252: 
+    Name: smss.exe
+    Path: \SystemRoot\System32\
+  328: 
+    Name: csrss.exe
+    Path: %SystemRoot%\system32\
+    Params: ObjectDirectory=\Windows SharedSection=1024,20480,768 Windows=On SubSystemType=Windows ServerDll=basesrv,1 ServerDll=winsrv:User
+  380: 
+    Name: wininit.exe
+  388: 
+    Name: csrss.exe
+    Path: %SystemRoot%\system32\
+    Params: ObjectDirectory=\Windows SharedSection=1024,20480,768 Windows=On SubSystemType=Windows ServerDll=basesrv,1 ServerDll=winsrv:User
+  416: 
+    Name: winlogon.exe
+  464: 
+    Name: svchost.exe
+  476: 
+    Name: services.exe
+    Path: C:\Windows\system32\
+  484: 
+    Name: lsass.exe
+    Path: C:\Windows\system32\
+  492: 
+    Name: lsm.exe
+    Path: C:\Windows\system32\
+  584: 
+    Name: svchost.exe
+  648: 
+    Name: VBoxService.exe
+    Path: C:\Windows\System32\
+  716: 
+    Name: svchost.exe
+  808: 
+    Name: svchost.exe
+  860: 
+    Name: svchost.exe
+  912: 
+    Name: svchost.exe
+  956: 
+    Name: svchost.exe
+  996: 
+    Name: svchost.exe
+  1096: 
+    Name: spoolsv.exe
+  1192: 
+    Name: svchost.exe
+  1224: 
+    Name: wrapper.exe
+  1236: 
+    Name: dcserverhttpd.exe
+    Path: C:\ManageEngine\DesktopCentral_Server\apache\bin\
+    Params: -d C:/ManageEngine/DesktopCentral_Server/apache
+  1328: 
+    Name: conhost.exe
+    Path: \??\C:\Windows\system32\
+  1344: 
+    Name: domain1Service.exe
+  1428: 
+    Name: elasticsearch-service-x64.exe
+    Path: C:\Program Files\elasticsearch-1.1.1\bin\
+    Params:  //RS//elasticsearch-service-x64
+  1436: 
+    Name: conhost.exe
+    Path: \??\C:\Windows\system32\
+  1440: 
+    Name: DesktopCentral.exe
+    Path: C:\ManageEngine\DesktopCentral_Server\bin\
+    Params:  
+  1468: 
+    Name: svchost.exe
+  1492: 
+    Name: jenkins.exe
+  1536: 
+    Name: cmd.exe
+    Params: /c ""C:/glassfish/glassfish4/glassfish/lib/nadmin.bat"  start-domain --watchdog --domaindir C:\\glassfish\\glassfish4\\glassfish
+  1544: 
+    Name: conhost.exe
+    Path: \??\C:\Windows\system32\
+  1572: 
+    Name: java.exe
+  1596: 
+    Name: java.exe
+    Params:  -jar "C:\glassfish\glassfish4\glassfish\lib\..\modules\admin-cli.jar" start-domain --watchdog --domaindir C:\\glassfish\\glassf
+  1652: 
+    Name: conhost.exe
+    Path: \??\C:\Windows\system32\
+  1816: 
+    Name: explorer.exe
+    Path: C:\Windows\
+  1828: 
+    Name: cygrunsrv.exe
+    Path: C:\Program Files\OpenSSH\bin\
+  1836: 
+    Name: conhost.exe
+    Path: \??\C:\Windows\system32\
+  1844: 
+    Name: jmx.exe
+  1864: 
+    Name: conhost.exe
+    Path: \??\C:\Windows\system32\
+  1912: 
+    Name: slui.exe
+  1940: 
+    Name: dcnotificationserver.exe
+  1988: 
+    Name: dcserverhttpd.exe
+  2040: 
+    Name: dcrotatelogs.exe
+    Path: C:\ManageEngine\DesktopCentral_Server\apache\bin\
+    Params: -l C:/ManageEngine/DesktopCentral_Server/logs/apache_errorlog_%Y-%m-%d-%H_%M.txt 5M
+  2084: 
+    Name: tomcat8.exe
+    Path: C:\Program Files\Apache Software Foundation\tomcat\apache-tomcat-8.0.33\bin\
+    Params:  //RS//Tomcat8
+  2120: 
+    Name: java.exe
+    Path: C:\Program Files (x86)\Common Files\Oracle\Java\javapath\
+    Params:  -jar "C:\Program Files\jenkins\jenkins.war" --httpPort=8484
+  2128: 
+    Name: svchost.exe
+  2144: 
+    Name: dcrotatelogs.exe
+    Path: C:\ManageEngine\DesktopCentral_Server\apache\bin\
+    Params: -l C:/ManageEngine/DesktopCentral_Server/logs/apache_errorlog_%Y-%m-%d-%H_%M.txt 5M
+  2160: 
+    Name: conhost.exe
+    Path: \??\C:\Windows\system32\
+  2180: 
+    Name: snmp.exe
+    Path: C:\Windows\System32\
+  2220: 
+    Name: conhost.exe
+    Path: \??\C:\Windows\system32\
+  2224: 
+    Name: sshd.exe
+    Path: C:\Program Files\OpenSSH\usr\sbin\
+  3076: 
+    Name: cmd.exe
+    Path: C:\Windows\system32\
+    Params:   /c "C:\Program Files\jmx\start_jmx.bat"
+  3084: 
+    Name: conhost.exe
+    Path: \??\C:\Windows\system32\
+  3120: 
+    Name: java.exe
+  3136: 
+    Name: conhost.exe
+    Path: \??\C:\Windows\system32\
+  3172: 
+    Name: sppsvc.exe
+  3196: 
+    Name: httpd.exe
+  3212: 
+    Name: java.exe
+    Path: C:\openjdk6\openjdk-1.6.0-unofficial-b27-windows-amd64\jre\bin\
+    Params:   -Dcom.sun.management.jmxremote -Dcom.sun.management.jmxremote.port=1617 -Dcom.sun.management.jmxremote.authenticate=false -Dco
+  3264: 
+    Name: svchost.exe
+  3356: 
+    Name: mysqld.exe
+    Path: c:\wamp\bin\mysql\mysql5.5.20\bin\
+    Params: wampmysqld
+  3460: 
+    Name: svchost.exe
+    Path: C:\Windows\system32\
+    Params: -k iissvcs
+  3504: 
+    Name: wlms.exe
+    Path: C:\Windows\system32\wlms\
+  3788: 
+    Name: httpd.exe
+    Path: C:\wamp\bin\apache\apache2.2.21\bin\
+    Params: -d C:/wamp/bin/apache/Apache2.2.21
+  4112: 
+    Name: VBoxTray.exe
+    Path: C:\Windows\System32\
+    Params:  
+  4140: 
+    Name: svchost.exe
+  4216: 
+    Name: svchost.exe
+  4312: 
+    Name: msdtc.exe
+  4788: 
+    Name: taskhost.exe
+  5008: 
+    Name: dwm.exe
+    Path: C:\Windows\system32\ </pre></td>
+</tr>
+<tr class="script">
+<td></td>
+<td>snmp-netstat </td>
+<td colspan="6"><pre>
+  TCP  0.0.0.0:22           0.0.0.0:0
+  TCP  0.0.0.0:135          0.0.0.0:0
+  TCP  0.0.0.0:3306         0.0.0.0:0
+  TCP  0.0.0.0:3389         0.0.0.0:0
+  TCP  0.0.0.0:8009         0.0.0.0:0
+  TCP  0.0.0.0:8020         0.0.0.0:0
+  TCP  0.0.0.0:8027         0.0.0.0:0
+  TCP  0.0.0.0:8282         0.0.0.0:0
+  TCP  0.0.0.0:8383         0.0.0.0:0
+  TCP  0.0.0.0:8585         0.0.0.0:0
+  TCP  0.0.0.0:49152        0.0.0.0:0
+  TCP  0.0.0.0:49153        0.0.0.0:0
+  TCP  0.0.0.0:49154        0.0.0.0:0
+  TCP  0.0.0.0:49155        0.0.0.0:0
+  TCP  0.0.0.0:49177        0.0.0.0:0
+  TCP  0.0.0.0:49204        0.0.0.0:0
+  TCP  127.0.0.1:8005       0.0.0.0:0
+  TCP  127.0.0.1:31000      127.0.0.1:32000
+  TCP  127.0.0.1:32000      0.0.0.0:0
+  TCP  127.0.0.1:32000      127.0.0.1:31000
+  TCP  127.0.0.1:49156      127.0.0.1:49157
+  TCP  127.0.0.1:49157      127.0.0.1:49156
+  TCP  127.0.0.1:49158      127.0.0.1:49159
+  TCP  127.0.0.1:49159      127.0.0.1:49158
+  TCP  127.0.0.1:49160      127.0.0.1:49161
+  TCP  127.0.0.1:49161      127.0.0.1:49160
+  TCP  127.0.0.1:49162      127.0.0.1:49163
+  TCP  127.0.0.1:49163      127.0.0.1:49162
+  TCP  127.0.0.1:49164      127.0.0.1:49165
+  TCP  127.0.0.1:49165      127.0.0.1:49164
+  TCP  127.0.0.1:49166      127.0.0.1:49167
+  TCP  127.0.0.1:49167      127.0.0.1:49166
+  TCP  127.0.0.1:49168      127.0.0.1:49169
+  TCP  127.0.0.1:49169      127.0.0.1:49168
+  TCP  127.0.0.1:49170      127.0.0.1:49171
+  TCP  127.0.0.1:49171      127.0.0.1:49170
+  TCP  127.0.0.1:49172      127.0.0.1:49173
+  TCP  127.0.0.1:49173      127.0.0.1:49172
+  TCP  127.0.0.1:49174      127.0.0.1:49175
+  TCP  127.0.0.1:49175      127.0.0.1:49174
+  TCP  127.0.0.1:49179      127.0.0.1:49180
+  TCP  127.0.0.1:49180      127.0.0.1:49179
+  TCP  127.0.0.1:49194      127.0.0.1:49195
+  TCP  127.0.0.1:49195      127.0.0.1:49194
+  TCP  127.0.0.1:49196      127.0.0.1:49197
+  TCP  127.0.0.1:49197      127.0.0.1:49196
+  TCP  127.0.0.1:49198      127.0.0.1:49199
+  TCP  127.0.0.1:49199      127.0.0.1:49198
+  TCP  127.0.0.1:49200      127.0.0.1:49201
+  TCP  127.0.0.1:49201      127.0.0.1:49200
+  TCP  127.0.0.1:49202      127.0.0.1:49203
+  TCP  127.0.0.1:49203      127.0.0.1:49202
+  TCP  127.0.0.1:49205      127.0.0.1:49206
+  TCP  127.0.0.1:49206      127.0.0.1:49205
+  TCP  127.0.0.1:49207      127.0.0.1:49208
+  TCP  127.0.0.1:49208      127.0.0.1:49207
+  TCP  127.0.0.1:49209      127.0.0.1:49210
+  TCP  127.0.0.1:49210      127.0.0.1:49209
+  TCP  127.0.0.1:49211      127.0.0.1:49212
+  TCP  127.0.0.1:49212      127.0.0.1:49211
+  TCP  127.0.0.1:49213      127.0.0.1:49214
+  TCP  127.0.0.1:49214      127.0.0.1:49213
+  TCP  127.0.0.1:49215      127.0.0.1:49216
+  TCP  127.0.0.1:49216      127.0.0.1:49215
+  TCP  127.0.0.1:49217      127.0.0.1:49218
+  TCP  127.0.0.1:49218      127.0.0.1:49217
+  TCP  127.0.0.1:49219      127.0.0.1:49220
+  TCP  127.0.0.1:49220      127.0.0.1:49219
+  TCP  127.0.0.1:49221      127.0.0.1:49222
+  TCP  127.0.0.1:49222      127.0.0.1:49221
+  TCP  127.0.0.1:49223      127.0.0.1:49224
+  TCP  127.0.0.1:49224      127.0.0.1:49223
+  TCP  127.0.0.1:49225      127.0.0.1:49226
+  TCP  127.0.0.1:49226      127.0.0.1:49225
+  TCP  127.0.0.1:49227      127.0.0.1:49228
+  TCP  127.0.0.1:49228      127.0.0.1:49227
+  TCP  127.0.0.1:49229      127.0.0.1:49230
+  TCP  127.0.0.1:49230      127.0.0.1:49229
+  TCP  127.0.0.1:49231      127.0.0.1:49232
+  TCP  127.0.0.1:49232      127.0.0.1:49231
+  TCP  127.0.0.1:49233      127.0.0.1:49234
+  TCP  127.0.0.1:49234      127.0.0.1:49233
+  TCP  127.0.0.1:49235      127.0.0.1:49236
+  TCP  127.0.0.1:49236      127.0.0.1:49235
+  TCP  127.0.0.1:49237      127.0.0.1:49238
+  TCP  127.0.0.1:49238      127.0.0.1:49237
+  TCP  127.0.0.1:49239      127.0.0.1:49240
+  TCP  127.0.0.1:49240      127.0.0.1:49239
+  TCP  127.0.0.1:49241      127.0.0.1:49242
+  TCP  127.0.0.1:49242      127.0.0.1:49241
+  TCP  127.0.0.1:49243      127.0.0.1:49244
+  TCP  127.0.0.1:49244      127.0.0.1:49243
+  TCP  127.0.0.1:49245      127.0.0.1:49246
+  TCP  127.0.0.1:49246      127.0.0.1:49245
+  TCP  127.0.0.1:49247      127.0.0.1:49248
+  TCP  127.0.0.1:49248      127.0.0.1:49247
+  TCP  127.0.0.1:49249      127.0.0.1:49250
+  TCP  127.0.0.1:49250      127.0.0.1:49249
+  TCP  127.0.0.1:49251      127.0.0.1:49252
+  TCP  127.0.0.1:49252      127.0.0.1:49251
+  TCP  127.0.0.1:49253      127.0.0.1:49254
+  TCP  127.0.0.1:49254      127.0.0.1:49253
+  TCP  127.0.0.1:49256      127.0.0.1:49257
+  TCP  127.0.0.1:49257      127.0.0.1:49256
+  TCP  127.0.0.1:49902      127.0.0.1:8020
+  TCP  127.0.0.1:49903      127.0.0.1:8020
+  TCP  127.0.0.1:49904      127.0.0.1:8020
+  TCP  127.0.0.1:49905      127.0.0.1:8020
+  TCP  127.0.0.1:49906      127.0.0.1:8020
+  TCP  127.0.0.1:49907      127.0.0.1:8020
+  TCP  127.0.0.1:49908      127.0.0.1:8020
+  TCP  127.0.0.1:49909      127.0.0.1:8020
+  TCP  127.0.0.1:49910      127.0.0.1:8020
+  TCP  127.0.0.1:49911      127.0.0.1:8020
+  TCP  127.0.0.1:49912      127.0.0.1:8020
+  TCP  127.0.0.1:49913      127.0.0.1:8020
+  TCP  127.0.0.1:49914      127.0.0.1:8020
+  TCP  127.0.0.1:49915      127.0.0.1:8020
+  TCP  127.0.0.1:49916      127.0.0.1:8020
+  TCP  127.0.0.1:49917      127.0.0.1:8020
+  TCP  127.0.0.1:49918      127.0.0.1:8020
+  TCP  127.0.0.1:49919      127.0.0.1:8020
+  TCP  127.0.0.1:49920      127.0.0.1:8020
+  TCP  127.0.0.1:49921      127.0.0.1:8020
+  TCP  127.0.0.1:49922      127.0.0.1:8020
+  TCP  127.0.0.1:49923      127.0.0.1:8020
+  TCP  127.0.0.1:49924      127.0.0.1:8020
+  TCP  127.0.0.1:49925      127.0.0.1:8020
+  TCP  192.168.56.102:139   0.0.0.0:0
+  TCP  192.168.56.102:9300  192.168.56.102:49181
+  TCP  192.168.56.102:9300  192.168.56.102:49182
+  TCP  192.168.56.102:9300  192.168.56.102:49183
+  TCP  192.168.56.102:9300  192.168.56.102:49184
+  TCP  192.168.56.102:9300  192.168.56.102:49185
+  TCP  192.168.56.102:9300  192.168.56.102:49186
+  TCP  192.168.56.102:9300  192.168.56.102:49187
+  TCP  192.168.56.102:9300  192.168.56.102:49188
+  TCP  192.168.56.102:9300  192.168.56.102:49189
+  TCP  192.168.56.102:9300  192.168.56.102:49190
+  TCP  192.168.56.102:9300  192.168.56.102:49191
+  TCP  192.168.56.102:9300  192.168.56.102:49192
+  TCP  192.168.56.102:9300  192.168.56.102:49193
+  TCP  192.168.56.102:49181 192.168.56.102:9300
+  TCP  192.168.56.102:49182 192.168.56.102:9300
+  TCP  192.168.56.102:49183 192.168.56.102:9300
+  TCP  192.168.56.102:49184 192.168.56.102:9300
+  TCP  192.168.56.102:49185 192.168.56.102:9300
+  TCP  192.168.56.102:49186 192.168.56.102:9300
+  TCP  192.168.56.102:49187 192.168.56.102:9300
+  TCP  192.168.56.102:49188 192.168.56.102:9300
+  TCP  192.168.56.102:49189 192.168.56.102:9300
+  TCP  192.168.56.102:49190 192.168.56.102:9300
+  TCP  192.168.56.102:49191 192.168.56.102:9300
+  TCP  192.168.56.102:49192 192.168.56.102:9300
+  TCP  192.168.56.102:49193 192.168.56.102:9300
+  UDP  0.0.0.0:161          *:*
+  UDP  0.0.0.0:500          *:*
+  UDP  0.0.0.0:4500         *:*
+  UDP  0.0.0.0:5353         *:*
+  UDP  0.0.0.0:5355         *:*
+  UDP  0.0.0.0:33848        *:*
+  UDP  0.0.0.0:54328        *:*
+  UDP  192.168.56.102:137   *:*
+  UDP  192.168.56.102:138   *:*
+ </pre></td>
+</tr>
+<tr class="script">
+<td></td>
+<td>snmp-win32-services </td>
+<td colspan="6"><pre>
+  Apache Tomcat 8.0 Tomcat8
+  Application Host Helper Service
+  Background Intelligent Transfer Service
+  Base Filtering Engine
+  COM+ Event System
+  Certificate Propagation
+  Cryptographic Services
+  DCOM Server Process Launcher
+  DHCP Client
+  DNS Client
+  Desktop Window Manager Session Manager
+  Diagnostic Policy Service
+  Distributed Link Tracking Client
+  Distributed Transaction Coordinator
+  Elasticsearch 1.1.1 (elasticsearch-service-x64)
+  Group Policy Client
+  IKE and AuthIP IPsec Keying Modules
+  IP Helper
+  IPsec Policy Agent
+  MEDC Server Component - Apache
+  MEDC Server Component - Notification Server
+  ManageEngine Desktop Central Server
+  Microsoft FTP Service
+  Network Connections
+  Network List Service
+  Network Location Awareness
+  Network Store Interface Service
+  OpenSSH Server
+  Plug and Play
+  Power
+  Print Spooler
+  RPC Endpoint Mapper
+  Remote Desktop Configuration
+  Remote Desktop Services
+  Remote Desktop Services UserMode Port Redirector
+  Remote Procedure Call (RPC)
+  Remote Registry
+  SNMP Service
+  SPP Notification Service
+  Security Accounts Manager
+  Server
+  Shell Hardware Detection
+  Software Protection
+  System Event Notification Service
+  TCP/IP NetBIOS Helper
+  Task Scheduler
+  User Profile Service
+  VirtualBox Guest Additions Service
+  Windows Event Log
+  Windows Firewall
+  Windows Font Cache Service
+  Windows Licensing Monitoring Service
+  Windows Management Instrumentation
+  Windows Process Activation Service
+  Windows Remote Management (WS-Management)
+  Windows Update
+  Workstation
+  World Wide Web Publishing Service
+  domain1 GlassFish Server
+  jenkins
+  jmx
+  wampapache
+  wampmysqld </pre></td>
+</tr>
+</table>
+
+<br><a href="javascript:toggle('metrics_192.168.56.102');">
+    Misc Metrics <span class="noprint"><small> (click to expand)</small></span></a><div id="metrics_192.168.56.102" class="hidden"><table cellspacing="1">
+<tr class="head">
+<td>Metric</td>
+<td>Value</td>
+</tr>
+<tr>
+<td>Ping Results</td>
+<td>arp-response</td>
+</tr>
+</table></div>
+</div>
+</div>
+<div id="menubox" class="noprint">
+<a href="#top"><small>Go to top</small></a><br><a href="javascript:toggleAll('closed');"><small>Toggle Closed Ports</small></a><br><a href="javascript:toggleAll('filtered');"><small>Toggle Filtered Ports</small></a>
+</div>
+</body>
+</html>

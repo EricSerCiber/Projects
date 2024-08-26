@@ -1,0 +1,1382 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html xmlns:fo="http://www.w3.org/1999/XSL/Format">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<!--generated with nmap.xsl - version 0.9c by Benjamin Erb - http://www.benjamin-erb.de/nmap_xsl.php --><style type="text/css">
+/* stylesheet print */
+@media print
+{
+  #menu {
+    display:none;
+  }
+
+  body {
+    font-family: Verdana, Helvetica, sans-serif;
+  }
+  
+  h1 {
+    font-size: 13pt;
+    font-weight:bold;
+    margin:4pt 0pt 0pt 0pt;
+    padding:0;
+  }
+
+  h2 {
+    font-size: 12pt;
+    font-weight:bold;
+    margin:3pt 0pt 0pt 0pt;
+    padding:0;
+  }
+
+  h3, a:link, a:visited {
+    font-size: 9pt;
+    font-weight:bold;
+    margin:1pt 0pt 0pt 20pt;
+    padding:0;
+    text-decoration: none;
+    color: #000000;
+  }
+
+  p,ul {
+    font-size: 9pt;
+    margin:1pt 0pt 8pt 40pt;
+    padding:0;
+    text-align:left;
+  }
+
+  li {
+    font-size: 9pt;
+    margin:0;
+    padding:0;
+    text-align:left;
+  }
+
+  table {
+    margin:1pt 0pt 8pt 40pt;
+    border:0px;
+    width:90%
+  }
+
+  td {
+    border:0px;
+    border-top:1px solid black;
+    font-size: 9pt;
+  }
+
+  .head td {
+    border:0px;
+    font-weight:bold;
+    font-size: 9pt;
+  }
+  .noprint { display: none; }
+}
+
+/* stylesheet screen */
+@media screen
+{
+  body {
+    font-family: Verdana, Helvetica, sans-serif;
+    margin: 0px;
+    background-color: #FFFFFF;
+    color: #000000;
+    text-align: center;
+  }
+
+  #container {
+    text-align:left;
+    margin: 10px auto;
+    width: 90%;
+  }
+
+  h1 {
+    font-family: Verdana, Helvetica, sans-serif;
+    font-weight:bold;
+    font-size: 14pt;
+    color: #FFFFFF;
+    background-color:#2A0D45;
+    margin:10px 0px 0px 0px;
+    padding:5px 4px 5px 4px;
+    width: 100%;
+    border:1px solid black;
+    text-align: left;
+  }
+
+  h2 {
+    font-family: Verdana, Helvetica, sans-serif;
+    font-weight:bold;
+    font-size: 11pt;
+    color: #000000;
+    margin:30px 0px 0px 0px;
+    padding:4px;
+    width: 100%;
+    background-color:#F0F8FF;
+    text-align: left;
+  }
+
+  h2.green {
+    color: #000000;
+    background-color:#CCFFCC;
+    border-color:#006400;
+  }
+
+  h2.red {
+    color: #000000;
+    background-color:#FFCCCC;
+    border-color:#8B0000;
+  }
+   
+  h3 {
+    font-family: Verdana, Helvetica, sans-serif;
+    font-weight:bold;
+    font-size: 10pt;
+    color:#000000;
+    background-color: #FFFFFF;
+    width: 75%;
+    text-align: left;
+  }
+
+  p {
+    font-family: Verdana, Helvetica, sans-serif;
+    font-size: 8pt;
+    color:#000000;
+    background-color: #FFFFFF;
+    width: 75%;
+    text-align: left;
+  }
+
+  p i {
+    font-family: Verdana, Helvetica, sans-serif;
+    font-size: 8pt;
+    color:#000000;
+    background-color: #CCCCCC;
+  }
+
+  ul {
+    font-family: Verdana, Helvetica, sans-serif;
+    font-size: 8pt;
+    color:#000000;
+    background-color: #FFFFFF;
+    width: 75%;
+    text-align: left;
+  }
+
+  a {
+    font-family: Verdana, Helvetica, sans-serif;
+    text-decoration: none;
+    font-size: 8pt;
+    color:#000000;
+    font-weight:bold;
+    background-color: #FFFFFF;
+    color: #000000;
+  }
+
+  li a {
+    font-family: Verdana, Helvetica, sans-serif;
+    text-decoration: none;
+    font-size: 10pt;
+    color:#000000;
+    font-weight:bold;
+    background-color: #FFFFFF;
+    color: #000000;
+  }
+
+  a:hover {
+    text-decoration: underline;
+  }
+
+  a.up {
+      color:#006400;
+  }
+
+  table {
+    width: 80%;
+    border:0px;
+    color: #000000;
+    background-color: #000000;
+    margin:10px;
+  }
+
+  tr {
+    vertical-align:top;
+    font-family: Verdana, Helvetica, sans-serif;
+    font-size: 8pt;
+    color:#000000;
+    background-color: #FFFFFF;
+  }
+
+  tr.head {
+    background-color: #E1E1E1;
+    color: #000000;
+    font-weight:bold;
+  }
+
+  tr.open {
+    background-color: #CCFFCC;
+    color: #000000;
+  }
+	
+  tr.script {
+    background-color: #EFFFF7;
+    color: #000000;
+  }
+
+  tr.filtered {
+    background-color: #F2F2F2;
+    color: #000000;
+  }
+
+  tr.closed {
+    background-color: #F2F2F2;
+    color: #000000;
+  }
+    
+  td {
+    padding:2px;
+  }
+        
+  #menu li {
+    display         : inline;
+    margin          : 0;
+    /*margin-right    : 10px;*/
+    padding         : 0;
+    list-style-type : none;
+  }    
+ 
+  #menubox {
+    position: fixed;
+    bottom: 0px;
+    right: 0px;
+    width: 120px;
+  }
+  
+  
+  
+  /* This section handle's IE's refusal to honor the fixed CSS attribute */
+  
+  * html div#menubox {
+    position: absolute;
+    top:expression(eval(
+      document.compatMode && document.compatMode=='CSS1Compat') ?
+      documentElement.scrollTop+(documentElement.clientHeight-this.clientHeight) 
+      : document.body.scrollTop +(document.body.clientHeight-this.clientHeight));
+  }
+  /* This fixes the jerky effect when scrolling in IE*/
+  * html,* html body {
+    background: #fff url(nosuchfile) fixed;
+  }
+
+  
+ 
+  .up {
+    color: #000000;
+    background-color:#CCFFCC;
+  }
+  
+  .down {
+    color:#626262;
+    background-color: #F2F2F2;
+  }
+
+  .print_only { display: none; }
+  .hidden { display: none; }
+  .unhidden { display: block; }
+  
+}
+</style>
+<title>Nmap Scan Report - Scanned at Thu Jan 18 15:13:35 2024</title>
+<script type="text/javascript">
+     
+      
+                
+      function toggle(divID) {
+        var item = document.getElementById(divID);
+        if (item) {
+          item.className=(item.className=='hidden')?'unhidden':'hidden';
+        }
+      }
+           
+      function togglePorts(tableID,portState) {
+        var table = document.getElementById(tableID);    
+        var tbody = table.getElementsByTagName("tbody")[0];
+        var rows = tbody.getElementsByTagName("tr");
+        for (var i=0; i < rows.length; i++) {
+          var value = rows[i].getElementsByTagName("td")[2].firstChild.nodeValue;
+          if (value == portState) {
+            rows[i].style.display = (rows[i].style.display == 'none')?'':'none';
+          }
+        }
+      }
+      
+      function toggleAll(portState) {
+        var allTables = document.getElementsByTagName("table");
+        for (var c=0; c < allTables.length; c++) {
+          if (allTables[c].id != "") {
+            togglePorts(allTables[c].id, portState)
+          }
+        }
+      }
+      
+      function init (){
+        toggleAll('closed');
+        toggleAll('filtered');     
+      }     
+            
+      window.onload = init; 
+      
+      
+    
+    </script>
+</head>
+<body>
+<a name="top"></a><div id="container">
+<h1>Nmap Scan Report - Scanned at Thu Jan 18 15:13:35 2024</h1>
+<ul id="menu">
+<li><a href="#scansummary">Scan Summary</a></li>
+<li> | <a href="#host_192_168_56_101" class="up">192.168.56.101</a>
+</li>
+<li> | <a href="#host_192_168_56_102" class="up">192.168.56.102</a>
+</li>
+</ul>
+<a name="scansummary"></a><hr class="print_only">
+<h2>Scan Summary</h2>
+<p>
+      Nmap 7.94SVN was initiated at Thu Jan 18 15:13:35 2024 with these arguments:<br><i>nmap -p- --open -sV -sC -oX servicios_adicionales.xml 192.168.56.101 192.168.56.102</i><br></p>
+<p>
+    Verbosity: 0; Debug level 0</p>
+<p>Nmap done at Thu Jan 18 15:18:45 2024; 2 IP addresses (2 hosts up) scanned in 309.65 seconds</p>
+<hr class="print_only">
+<a name="host_192_168_56_101"></a><h2 class="up">192.168.56.101<span class="print_only">(online)</span>
+</h2>
+<div id="hostblock_192.168.56.101" class="unhidden">
+<h3>Address</h3>
+<ul>
+<li>192.168.56.101
+            (ipv4)
+          </li>
+<li>08:00:27:42:51:79 - Oracle VirtualBox virtual NIC 
+            (mac)
+          </li>
+</ul>
+
+
+
+<h3>Ports</h3>
+<p>The 65524 ports scanned but not shown below are in state: <b>filtered</b></p>
+<ul><li><p>65524 ports replied with: <b>no-response</b></p></li></ul>
+<p>The 2 ports scanned but not shown below are in state: <b>closed</b></p>
+<ul><li><p>2 ports replied with: <b>reset</b></p></li></ul>
+<table id="porttable_192.168.56.101" cellspacing="1">
+<tr class="head">
+<td colspan="2">Port</td>
+<td>State 
+          <a href="javascript:togglePorts('porttable_192.168.56.101','closed');"><span class="noprint"><small> (toggle closed [0] </small></span></a><a href="javascript:togglePorts('porttable_192.168.56.101','filtered');"><span class="noprint"><small> | filtered [0])</small></span></a>
+</td>
+<td>Service</td>
+<td>Reason</td>
+<td>Product</td>
+<td>Version</td>
+<td>Extra info</td>
+</tr>
+
+
+
+
+
+<tr class="open">
+<td>21</td>
+<td>tcp</td>
+<td>open</td>
+<td>ftp </td>
+<td>syn-ack</td>
+<td>ProFTPD </td>
+<td>1.3.5 </td>
+<td> </td>
+</tr>
+<tr class="open">
+<td>22</td>
+<td>tcp</td>
+<td>open</td>
+<td>ssh </td>
+<td>syn-ack</td>
+<td>OpenSSH </td>
+<td>6.6.1p1 Ubuntu 2ubuntu2.13 </td>
+<td>Ubuntu Linux; protocol 2.0 </td>
+</tr>
+<tr class="script">
+<td></td>
+<td>ssh-hostkey </td>
+<td colspan="6"><pre>
+  1024 2b:2e:1f:a4:54:26:87:76:12:26:59:58:0d:da:3b:04 (DSA)
+  2048 c9:ac:70:ef:f8:de:8b:a3:a3:44:ab:3d:32:0a:5c:6a (RSA)
+  256 c0:49:cc:18:7b:27:a4:07:0d:2a:0d:bb:42:4c:36:17 (ECDSA)
+  256 a0:76:f3:76:f8:f0:70:4d:09:ca:e1:10:fd:a9:cc:0a (ED25519) </pre></td>
+</tr>
+<tr class="open">
+<td>80</td>
+<td>tcp</td>
+<td>open</td>
+<td>http </td>
+<td>syn-ack</td>
+<td>Apache httpd </td>
+<td>2.4.7 </td>
+<td> </td>
+</tr>
+<tr class="script">
+<td></td>
+<td>http-server-header </td>
+<td colspan="6"><pre>Apache/2.4.7 (Ubuntu) </pre></td>
+</tr>
+<tr class="script">
+<td></td>
+<td>http-title </td>
+<td colspan="6"><pre>Index of / </pre></td>
+</tr>
+<tr class="script">
+<td></td>
+<td>http-ls </td>
+<td colspan="6"><pre>Volume /
+SIZE  TIME              FILENAME
+-     2020-10-29 19:37  chat/
+-     2011-07-27 20:17  drupal/
+1.7K  2020-10-29 19:37  payroll_app.php
+-     2013-04-08 12:06  phpmyadmin/
+
+ </pre></td>
+</tr>
+<tr class="open">
+<td>445</td>
+<td>tcp</td>
+<td>open</td>
+<td>netbios-ssn </td>
+<td>syn-ack</td>
+<td>Samba smbd </td>
+<td>4.3.11-Ubuntu </td>
+<td>workgroup: WORKGROUP </td>
+</tr>
+<tr class="open">
+<td>631</td>
+<td>tcp</td>
+<td>open</td>
+<td>ipp </td>
+<td>syn-ack</td>
+<td>CUPS </td>
+<td>1.7 </td>
+<td> </td>
+</tr>
+<tr class="script">
+<td></td>
+<td>http-title </td>
+<td colspan="6"><pre>Home - CUPS 1.7.2 </pre></td>
+</tr>
+<tr class="script">
+<td></td>
+<td>http-robots.txt </td>
+<td colspan="6"><pre>1 disallowed entry 
+/ </pre></td>
+</tr>
+<tr class="script">
+<td></td>
+<td>http-server-header </td>
+<td colspan="6"><pre>CUPS/1.7 IPP/2.1 </pre></td>
+</tr>
+<tr class="script">
+<td></td>
+<td>http-methods </td>
+<td colspan="6"><pre>
+  Potentially risky methods: PUT </pre></td>
+</tr>
+<tr class="open">
+<td>3306</td>
+<td>tcp</td>
+<td>open</td>
+<td>mysql </td>
+<td>syn-ack</td>
+<td>MySQL </td>
+<td> </td>
+<td>unauthorized </td>
+</tr>
+<tr class="open">
+<td>3500</td>
+<td>tcp</td>
+<td>open</td>
+<td>http </td>
+<td>syn-ack</td>
+<td>WEBrick httpd </td>
+<td>1.3.1 </td>
+<td>Ruby 2.3.8 (2018-10-18) </td>
+</tr>
+<tr class="script">
+<td></td>
+<td>http-server-header </td>
+<td colspan="6"><pre>WEBrick/1.3.1 (Ruby/2.3.8/2018-10-18) </pre></td>
+</tr>
+<tr class="script">
+<td></td>
+<td>http-robots.txt </td>
+<td colspan="6"><pre>1 disallowed entry 
+/ </pre></td>
+</tr>
+<tr class="script">
+<td></td>
+<td>http-title </td>
+<td colspan="6"><pre>Ruby on Rails: Welcome aboard </pre></td>
+</tr>
+<tr class="open">
+<td>6697</td>
+<td>tcp</td>
+<td>open</td>
+<td>irc </td>
+<td>syn-ack</td>
+<td>UnrealIRCd </td>
+<td> </td>
+<td> </td>
+</tr>
+<tr class="open">
+<td>8080</td>
+<td>tcp</td>
+<td>open</td>
+<td>http </td>
+<td>syn-ack</td>
+<td>Jetty </td>
+<td>8.1.7.v20120910 </td>
+<td> </td>
+</tr>
+<tr class="script">
+<td></td>
+<td>http-server-header </td>
+<td colspan="6"><pre>Jetty(8.1.7.v20120910) </pre></td>
+</tr>
+<tr class="script">
+<td></td>
+<td>http-title </td>
+<td colspan="6"><pre>Error 404 - Not Found </pre></td>
+</tr>
+</table>
+<h3>Host Script Output</h3>
+<table>
+<tr class="head">
+<td>Script Name</td>
+<td>Output</td>
+</tr>
+<tr class="script">
+<td>smb2-time </td>
+<td><pre>
+  date: 2024-01-18T20:18:03
+  start_date: N/A </pre></td>
+</tr>
+<tr class="script">
+<td>clock-skew </td>
+<td><pre>mean: 1s, deviation: 6s, median: -1s </pre></td>
+</tr>
+<tr class="script">
+<td>smb2-security-mode </td>
+<td><pre>
+  3:1:1: 
+    Message signing enabled but not required </pre></td>
+</tr>
+<tr class="script">
+<td>smb-security-mode </td>
+<td><pre>
+  account_used: guest
+  authentication_level: user
+  challenge_response: supported
+  message_signing: disabled (dangerous, but default) </pre></td>
+</tr>
+<tr class="script">
+<td>smb-os-discovery </td>
+<td><pre>
+  OS: Windows 6.1 (Samba 4.3.11-Ubuntu)
+  Computer name: metasploitable3-ub1404
+  NetBIOS computer name: METASPLOITABLE3-UB1404\x00
+  Domain name: \x00
+  FQDN: metasploitable3-ub1404
+  System time: 2024-01-18T20:18:06+00:00
+ </pre></td>
+</tr>
+</table>
+<br><a href="javascript:toggle('metrics_192.168.56.101');">
+    Misc Metrics <span class="noprint"><small> (click to expand)</small></span></a><div id="metrics_192.168.56.101" class="hidden"><table cellspacing="1">
+<tr class="head">
+<td>Metric</td>
+<td>Value</td>
+</tr>
+<tr>
+<td>Ping Results</td>
+<td>arp-response</td>
+</tr>
+</table></div>
+</div>
+<hr class="print_only">
+<a name="host_192_168_56_102"></a><h2 class="up">192.168.56.102<span class="print_only">(online)</span>
+</h2>
+<div id="hostblock_192.168.56.102" class="unhidden">
+<h3>Address</h3>
+<ul>
+<li>192.168.56.102
+            (ipv4)
+          </li>
+<li>08:00:27:D7:CC:D8 - Oracle VirtualBox virtual NIC 
+            (mac)
+          </li>
+</ul>
+
+
+
+<h3>Ports</h3>
+<p>The 62531 ports scanned but not shown below are in state: <b>closed</b></p>
+<ul><li><p>62531 ports replied with: <b>reset</b></p></li></ul>
+<p>The 2968 ports scanned but not shown below are in state: <b>filtered</b></p>
+<ul><li><p>2968 ports replied with: <b>no-response</b></p></li></ul>
+<table id="porttable_192.168.56.102" cellspacing="1">
+<tr class="head">
+<td colspan="2">Port</td>
+<td>State 
+          <a href="javascript:togglePorts('porttable_192.168.56.102','closed');"><span class="noprint"><small> (toggle closed [0] </small></span></a><a href="javascript:togglePorts('porttable_192.168.56.102','filtered');"><span class="noprint"><small> | filtered [0])</small></span></a>
+</td>
+<td>Service</td>
+<td>Reason</td>
+<td>Product</td>
+<td>Version</td>
+<td>Extra info</td>
+</tr>
+
+
+
+
+
+<tr class="open">
+<td>21</td>
+<td>tcp</td>
+<td>open</td>
+<td>ftp </td>
+<td>syn-ack</td>
+<td>Microsoft ftpd </td>
+<td> </td>
+<td> </td>
+</tr>
+<tr class="script">
+<td></td>
+<td>ftp-syst </td>
+<td colspan="6"><pre>
+  SYST: Windows_NT </pre></td>
+</tr>
+<tr class="open">
+<td>22</td>
+<td>tcp</td>
+<td>open</td>
+<td>ssh </td>
+<td>syn-ack</td>
+<td>OpenSSH </td>
+<td>7.1 </td>
+<td>protocol 2.0 </td>
+</tr>
+<tr class="script">
+<td></td>
+<td>ssh-hostkey </td>
+<td colspan="6"><pre>
+  2048 fd:08:98:ca:3c:e8:c1:3c:ea:dd:09:1a:2e:89:a5:1f (RSA)
+  521 7e:57:81:8e:f6:3c:1d:cf:eb:7d:ba:d1:12:31:b5:a8 (ECDSA) </pre></td>
+</tr>
+<tr class="open">
+<td>80</td>
+<td>tcp</td>
+<td>open</td>
+<td>http </td>
+<td>syn-ack</td>
+<td>Microsoft IIS httpd </td>
+<td>7.5 </td>
+<td> </td>
+</tr>
+<tr class="script">
+<td></td>
+<td>http-server-header </td>
+<td colspan="6"><pre>Microsoft-IIS/7.5 </pre></td>
+</tr>
+<tr class="script">
+<td></td>
+<td>http-title </td>
+<td colspan="6"><pre>Site doesn't have a title (text/html). </pre></td>
+</tr>
+<tr class="script">
+<td></td>
+<td>http-methods </td>
+<td colspan="6"><pre>
+  Potentially risky methods: TRACE </pre></td>
+</tr>
+<tr class="open">
+<td>135</td>
+<td>tcp</td>
+<td>open</td>
+<td>msrpc </td>
+<td>syn-ack</td>
+<td>Microsoft Windows RPC </td>
+<td> </td>
+<td> </td>
+</tr>
+<tr class="open">
+<td>139</td>
+<td>tcp</td>
+<td>open</td>
+<td>netbios-ssn </td>
+<td>syn-ack</td>
+<td>Microsoft Windows netbios-ssn </td>
+<td> </td>
+<td> </td>
+</tr>
+<tr class="open">
+<td>445</td>
+<td>tcp</td>
+<td>open</td>
+<td>microsoft-ds </td>
+<td>syn-ack</td>
+<td>Windows Server 2008 R2 Standard 7601 Service Pack 1 microsoft-ds </td>
+<td> </td>
+<td> </td>
+</tr>
+<tr class="open">
+<td>1617</td>
+<td>tcp</td>
+<td>open</td>
+<td>java-rmi </td>
+<td>syn-ack</td>
+<td>Java RMI </td>
+<td> </td>
+<td> </td>
+</tr>
+<tr class="script">
+<td></td>
+<td>rmi-dumpregistry </td>
+<td colspan="6"><pre>
+  jmxrmi
+    javax.management.remote.rmi.RMIServerImpl_Stub
+    @192.168.56.102:49176
+    extends
+      java.rmi.server.RemoteStub
+      extends
+        java.rmi.server.RemoteObject
+ </pre></td>
+</tr>
+<tr class="open">
+<td>3306</td>
+<td>tcp</td>
+<td>open</td>
+<td>mysql </td>
+<td>syn-ack</td>
+<td>MySQL </td>
+<td>5.5.20-log </td>
+<td> </td>
+</tr>
+<tr class="script">
+<td></td>
+<td>mysql-info </td>
+<td colspan="6"><pre>
+  Protocol: 10
+  Version: 5.5.20-log
+  Thread ID: 6
+  Capabilities flags: 63487
+  Some Capabilities: Support41Auth, Speaks41ProtocolOld, LongColumnFlag, FoundRows, SupportsTransactions, IgnoreSigpipes, IgnoreSpaceBeforeParenthesis, ConnectWithDatabase, SupportsCompression, Speaks41ProtocolNew, ODBCClient, SupportsLoadDataLocal, InteractiveClient, DontAllowDatabaseTableColumn, LongPassword, SupportsMultipleResults, SupportsMultipleStatments, SupportsAuthPlugins
+  Status: Autocommit
+  Salt: )hO6^Y#&gt;PXG;2*xC%-P,
+  Auth Plugin Name: mysql_native_password </pre></td>
+</tr>
+<tr class="open">
+<td>3389</td>
+<td>tcp</td>
+<td>open</td>
+<td>ms-wbt-server </td>
+<td>syn-ack</td>
+<td> </td>
+<td> </td>
+<td> </td>
+</tr>
+<tr class="script">
+<td></td>
+<td>ssl-date </td>
+<td colspan="6"><pre>2024-01-18T20:18:41+00:00; 0s from scanner time. </pre></td>
+</tr>
+<tr class="script">
+<td></td>
+<td>ssl-cert </td>
+<td colspan="6"><pre>Subject: commonName=vagrant-2008R2
+Not valid before: 2023-12-14T12:38:25
+Not valid after:  2024-06-14T12:38:25 </pre></td>
+</tr>
+<tr class="script">
+<td></td>
+<td>rdp-ntlm-info </td>
+<td colspan="6"><pre>
+  Target_Name: VAGRANT-2008R2
+  NetBIOS_Domain_Name: VAGRANT-2008R2
+  NetBIOS_Computer_Name: VAGRANT-2008R2
+  DNS_Domain_Name: vagrant-2008R2
+  DNS_Computer_Name: vagrant-2008R2
+  Product_Version: 6.1.7601
+  System_Time: 2024-01-18T20:18:05+00:00 </pre></td>
+</tr>
+<tr class="open">
+<td>3700</td>
+<td>tcp</td>
+<td>open</td>
+<td>giop </td>
+<td>syn-ack</td>
+<td>CORBA naming service </td>
+<td> </td>
+<td> </td>
+</tr>
+<tr class="open">
+<td>4848</td>
+<td>tcp</td>
+<td>open</td>
+<td>http </td>
+<td>syn-ack</td>
+<td>Oracle GlassFish </td>
+<td>4.0 </td>
+<td>Servlet 3.1; JSP 2.3; Java 1.8 </td>
+</tr>
+<tr class="script">
+<td></td>
+<td>http-server-header </td>
+<td colspan="6"><pre>GlassFish Server Open Source Edition  4.0  </pre></td>
+</tr>
+<tr class="script">
+<td></td>
+<td>ssl-cert </td>
+<td colspan="6"><pre>Subject: commonName=localhost/organizationName=Oracle Corporation/stateOrProvinceName=California/countryName=US
+Not valid before: 2013-05-15T05:33:38
+Not valid after:  2023-05-13T05:33:38 </pre></td>
+</tr>
+<tr class="script">
+<td></td>
+<td>http-title </td>
+<td colspan="6"><pre>Did not follow redirect to https://192.168.56.102:4848/ </pre></td>
+</tr>
+<tr class="script">
+<td></td>
+<td>ssl-date </td>
+<td colspan="6"><pre>2024-01-18T20:18:41+00:00; 0s from scanner time. </pre></td>
+</tr>
+<tr class="open">
+<td>5985</td>
+<td>tcp</td>
+<td>open</td>
+<td>http </td>
+<td>syn-ack</td>
+<td>Microsoft HTTPAPI httpd </td>
+<td>2.0 </td>
+<td>SSDP/UPnP </td>
+</tr>
+<tr class="script">
+<td></td>
+<td>http-title </td>
+<td colspan="6"><pre>Not Found </pre></td>
+</tr>
+<tr class="script">
+<td></td>
+<td>http-server-header </td>
+<td colspan="6"><pre>Microsoft-HTTPAPI/2.0 </pre></td>
+</tr>
+<tr class="open">
+<td>7676</td>
+<td>tcp</td>
+<td>open</td>
+<td>java-message-service </td>
+<td>syn-ack</td>
+<td>Java Message Service </td>
+<td>301 </td>
+<td> </td>
+</tr>
+<tr class="open">
+<td>8009</td>
+<td>tcp</td>
+<td>open</td>
+<td>ajp13 </td>
+<td>syn-ack</td>
+<td>Apache Jserv </td>
+<td> </td>
+<td>Protocol v1.3 </td>
+</tr>
+<tr class="script">
+<td></td>
+<td>ajp-methods </td>
+<td colspan="6"><pre>Failed to get a valid response for the OPTION request </pre></td>
+</tr>
+<tr class="open">
+<td>8020</td>
+<td>tcp</td>
+<td>open</td>
+<td>http </td>
+<td>syn-ack</td>
+<td>Apache httpd </td>
+<td> </td>
+<td> </td>
+</tr>
+<tr class="script">
+<td></td>
+<td>http-server-header </td>
+<td colspan="6"><pre>Apache </pre></td>
+</tr>
+<tr class="script">
+<td></td>
+<td>http-title </td>
+<td colspan="6"><pre>503 Service Unavailable </pre></td>
+</tr>
+<tr class="open">
+<td>8027</td>
+<td>tcp</td>
+<td>open</td>
+<td>papachi-p2p-srv </td>
+<td>syn-ack</td>
+<td> </td>
+<td> </td>
+<td> </td>
+</tr>
+<tr class="open">
+<td>8080</td>
+<td>tcp</td>
+<td>open</td>
+<td>http </td>
+<td>syn-ack</td>
+<td>Sun GlassFish Open Source Edition </td>
+<td> 4.0 </td>
+<td> </td>
+</tr>
+<tr class="script">
+<td></td>
+<td>http-title </td>
+<td colspan="6"><pre>GlassFish Server - Server Running </pre></td>
+</tr>
+<tr class="script">
+<td></td>
+<td>http-open-proxy </td>
+<td colspan="6"><pre>Proxy might be redirecting requests </pre></td>
+</tr>
+<tr class="script">
+<td></td>
+<td>http-methods </td>
+<td colspan="6"><pre>
+  Potentially risky methods: PUT DELETE TRACE </pre></td>
+</tr>
+<tr class="script">
+<td></td>
+<td>http-server-header </td>
+<td colspan="6"><pre>GlassFish Server Open Source Edition  4.0  </pre></td>
+</tr>
+<tr class="open">
+<td>8181</td>
+<td>tcp</td>
+<td>open</td>
+<td>intermapper </td>
+<td>syn-ack</td>
+<td> </td>
+<td> </td>
+<td> </td>
+</tr>
+<tr class="script">
+<td></td>
+<td>ssl-cert </td>
+<td colspan="6"><pre>Subject: commonName=localhost/organizationName=Oracle Corporation/stateOrProvinceName=California/countryName=US
+Not valid before: 2013-05-15T05:33:38
+Not valid after:  2023-05-13T05:33:38 </pre></td>
+</tr>
+<tr class="script">
+<td></td>
+<td>ssl-date </td>
+<td colspan="6"><pre>2024-01-18T20:18:41+00:00; 0s from scanner time. </pre></td>
+</tr>
+<tr class="script">
+<td></td>
+<td>fingerprint-strings </td>
+<td colspan="6"><pre>
+  GetRequest: 
+    HTTP/1.1 200 OK
+    Date: Thu, 18 Jan 2024 20:15:44 GMT
+    Content-Type: text/html
+    Connection: close
+    Content-Length: 4626
+    &lt;!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"&gt;
+    &lt;html lang="en"&gt;
+    &lt;!--
+    ALTER OR REMOVE COPYRIGHT NOTICES OR THIS HEADER.
+    Copyright (c) 2010, 2013 Oracle and/or its affiliates. All rights reserved.
+    subject to License Terms
+    &lt;head&gt;
+    &lt;style type="text/css"&gt;
+    body{margin-top:0}
+    body,td,p,div,span,a,ul,ul li, ol, ol li, ol li b, dl,h1,h2,h3,h4,h5,h6,li {font-family:geneva,helvetica,arial,"lucida sans",sans-serif; font-size:10pt}
+    {font-size:18pt}
+    {font-size:14pt}
+    {font-size:12pt}
+    code,kbd,tt,pre {font-family:monaco,courier,"courier new"; font-size:10pt;}
+    {padding-bottom: 8px}
+    p.copy, p.copy a {font-family:geneva,helvetica,arial,"lucida sans",sans-serif; font-size:8pt}
+    p.copy {text-align: center}
+    table.grey1,tr.grey1,td.g
+  HTTPOptions: 
+    HTTP/1.1 405 Method Not Allowed
+    Allow: GET
+    Date: Thu, 18 Jan 2024 20:15:44 GMT
+    Connection: close
+    Content-Length: 0
+  RTSPRequest: 
+    HTTP/1.1 505 HTTP Version Not Supported
+    Date: Thu, 18 Jan 2024 20:15:44 GMT
+    Connection: close
+    Content-Length: 0 </pre></td>
+</tr>
+<tr class="open">
+<td>8282</td>
+<td>tcp</td>
+<td>open</td>
+<td>http </td>
+<td>syn-ack</td>
+<td>Apache Tomcat/Coyote JSP engine </td>
+<td>1.1 </td>
+<td> </td>
+</tr>
+<tr class="script">
+<td></td>
+<td>http-server-header </td>
+<td colspan="6"><pre>Apache-Coyote/1.1 </pre></td>
+</tr>
+<tr class="script">
+<td></td>
+<td>http-title </td>
+<td colspan="6"><pre>Apache Tomcat/8.0.33 </pre></td>
+</tr>
+<tr class="script">
+<td></td>
+<td>http-favicon </td>
+<td colspan="6"><pre>Apache Tomcat </pre></td>
+</tr>
+<tr class="open">
+<td>8383</td>
+<td>tcp</td>
+<td>open</td>
+<td>http </td>
+<td>syn-ack</td>
+<td>Apache httpd </td>
+<td> </td>
+<td> </td>
+</tr>
+<tr class="script">
+<td></td>
+<td>http-title </td>
+<td colspan="6"><pre>400 Bad Request </pre></td>
+</tr>
+<tr class="script">
+<td></td>
+<td>http-server-header </td>
+<td colspan="6"><pre>Apache </pre></td>
+</tr>
+<tr class="open">
+<td>8484</td>
+<td>tcp</td>
+<td>open</td>
+<td>http </td>
+<td>syn-ack</td>
+<td>Jetty </td>
+<td>winstone-2.8 </td>
+<td> </td>
+</tr>
+<tr class="script">
+<td></td>
+<td>http-server-header </td>
+<td colspan="6"><pre>Jetty(winstone-2.8) </pre></td>
+</tr>
+<tr class="script">
+<td></td>
+<td>http-title </td>
+<td colspan="6"><pre>Dashboard [Jenkins] </pre></td>
+</tr>
+<tr class="script">
+<td></td>
+<td>http-robots.txt </td>
+<td colspan="6"><pre>1 disallowed entry 
+/ </pre></td>
+</tr>
+<tr class="open">
+<td>8585</td>
+<td>tcp</td>
+<td>open</td>
+<td>http </td>
+<td>syn-ack</td>
+<td>Apache httpd </td>
+<td>2.2.21 </td>
+<td>(Win64) PHP/5.3.10 DAV/2 </td>
+</tr>
+<tr class="script">
+<td></td>
+<td>http-server-header </td>
+<td colspan="6"><pre>Apache/2.2.21 (Win64) PHP/5.3.10 DAV/2 </pre></td>
+</tr>
+<tr class="script">
+<td></td>
+<td>http-title </td>
+<td colspan="6"><pre>WAMPSERVER Homepage </pre></td>
+</tr>
+<tr class="open">
+<td>8686</td>
+<td>tcp</td>
+<td>open</td>
+<td>java-rmi </td>
+<td>syn-ack</td>
+<td>Java RMI </td>
+<td> </td>
+<td> </td>
+</tr>
+<tr class="script">
+<td></td>
+<td>rmi-dumpregistry </td>
+<td colspan="6"><pre>
+  vagrant-2008R2/7676/jmxrmi
+    javax.management.remote.rmi.RMIServerImpl_Stub
+    @192.168.56.102:49302
+    extends
+      java.rmi.server.RemoteStub
+      extends
+        java.rmi.server.RemoteObject
+  jmxrmi
+    javax.management.remote.rmi.RMIServerImpl_Stub
+    @192.168.56.102:8686
+    extends
+      java.rmi.server.RemoteStub
+      extends
+        java.rmi.server.RemoteObject
+ </pre></td>
+</tr>
+<tr class="open">
+<td>9200</td>
+<td>tcp</td>
+<td>open</td>
+<td>wap-wsp </td>
+<td>syn-ack</td>
+<td> </td>
+<td> </td>
+<td> </td>
+</tr>
+<tr class="script">
+<td></td>
+<td>fingerprint-strings </td>
+<td colspan="6"><pre>
+  FourOhFourRequest: 
+    HTTP/1.0 400 Bad Request
+    Content-Type: text/plain; charset=UTF-8
+    Content-Length: 80
+    handler found for uri [/nice%20ports%2C/Tri%6Eity.txt%2ebak] and method [GET]
+  GetRequest: 
+    HTTP/1.0 200 OK
+    Content-Type: application/json; charset=UTF-8
+    Content-Length: 304
+    "status" : 200,
+    "name" : "Meld",
+    "version" : {
+    "number" : "1.1.1",
+    "build_hash" : "f1585f096d3f3985e73456debdc1a0745f512bbc",
+    "build_timestamp" : "2014-04-16T14:27:12Z",
+    "build_snapshot" : false,
+    "lucene_version" : "4.7"
+    "tagline" : "You Know, for Search"
+  HTTPOptions: 
+    HTTP/1.0 200 OK
+    Content-Type: text/plain; charset=UTF-8
+    Content-Length: 0
+  RTSPRequest, SIPOptions: 
+    HTTP/1.1 200 OK
+    Content-Type: text/plain; charset=UTF-8
+    Content-Length: 0 </pre></td>
+</tr>
+<tr class="open">
+<td>9300</td>
+<td>tcp</td>
+<td>open</td>
+<td>vrace </td>
+<td>syn-ack</td>
+<td> </td>
+<td> </td>
+<td> </td>
+</tr>
+<tr class="open">
+<td>47001</td>
+<td>tcp</td>
+<td>open</td>
+<td>http </td>
+<td>syn-ack</td>
+<td>Microsoft HTTPAPI httpd </td>
+<td>2.0 </td>
+<td>SSDP/UPnP </td>
+</tr>
+<tr class="script">
+<td></td>
+<td>http-server-header </td>
+<td colspan="6"><pre>Microsoft-HTTPAPI/2.0 </pre></td>
+</tr>
+<tr class="script">
+<td></td>
+<td>http-title </td>
+<td colspan="6"><pre>Not Found </pre></td>
+</tr>
+<tr class="open">
+<td>49152</td>
+<td>tcp</td>
+<td>open</td>
+<td>msrpc </td>
+<td>syn-ack</td>
+<td>Microsoft Windows RPC </td>
+<td> </td>
+<td> </td>
+</tr>
+<tr class="open">
+<td>49153</td>
+<td>tcp</td>
+<td>open</td>
+<td>msrpc </td>
+<td>syn-ack</td>
+<td>Microsoft Windows RPC </td>
+<td> </td>
+<td> </td>
+</tr>
+<tr class="open">
+<td>49154</td>
+<td>tcp</td>
+<td>open</td>
+<td>msrpc </td>
+<td>syn-ack</td>
+<td>Microsoft Windows RPC </td>
+<td> </td>
+<td> </td>
+</tr>
+<tr class="open">
+<td>49157</td>
+<td>tcp</td>
+<td>open</td>
+<td>msrpc </td>
+<td>syn-ack</td>
+<td>Microsoft Windows RPC </td>
+<td> </td>
+<td> </td>
+</tr>
+<tr class="open">
+<td>49176</td>
+<td>tcp</td>
+<td>open</td>
+<td>java-rmi </td>
+<td>syn-ack</td>
+<td>Java RMI </td>
+<td> </td>
+<td> </td>
+</tr>
+<tr class="open">
+<td>49177</td>
+<td>tcp</td>
+<td>open</td>
+<td>tcpwrapped </td>
+<td>syn-ack</td>
+<td> </td>
+<td> </td>
+<td> </td>
+</tr>
+<tr class="open">
+<td>49201</td>
+<td>tcp</td>
+<td>open</td>
+<td>msrpc </td>
+<td>syn-ack</td>
+<td>Microsoft Windows RPC </td>
+<td> </td>
+<td> </td>
+</tr>
+<tr class="open">
+<td>49238</td>
+<td>tcp</td>
+<td>open</td>
+<td>msrpc </td>
+<td>syn-ack</td>
+<td>Microsoft Windows RPC </td>
+<td> </td>
+<td> </td>
+</tr>
+<tr class="open">
+<td>49257</td>
+<td>tcp</td>
+<td>open</td>
+<td>ssh </td>
+<td>syn-ack</td>
+<td>Apache Mina sshd </td>
+<td>0.8.0 </td>
+<td>protocol 2.0 </td>
+</tr>
+<tr class="open">
+<td>49258</td>
+<td>tcp</td>
+<td>open</td>
+<td>jenkins-listener </td>
+<td>syn-ack</td>
+<td>Jenkins TcpSlaveAgentListener </td>
+<td> </td>
+<td> </td>
+</tr>
+</table>
+<h3>Host Script Output</h3>
+<table>
+<tr class="head">
+<td>Script Name</td>
+<td>Output</td>
+</tr>
+<tr class="script">
+<td>smb2-security-mode </td>
+<td><pre>
+  2:1:0: 
+    Message signing enabled but not required </pre></td>
+</tr>
+<tr class="script">
+<td>smb-security-mode </td>
+<td><pre>
+  account_used: guest
+  authentication_level: user
+  challenge_response: supported
+  message_signing: disabled (dangerous, but default) </pre></td>
+</tr>
+<tr class="script">
+<td>smb-os-discovery </td>
+<td><pre>
+  OS: Windows Server 2008 R2 Standard 7601 Service Pack 1 (Windows Server 2008 R2 Standard 6.1)
+  OS CPE: cpe:/o:microsoft:windows_server_2008::sp1
+  Computer name: vagrant-2008R2
+  NetBIOS computer name: VAGRANT-2008R2\x00
+  Workgroup: WORKGROUP\x00
+  System time: 2024-01-18T12:18:08-08:00
+ </pre></td>
+</tr>
+<tr class="script">
+<td>nbstat </td>
+<td><pre>NetBIOS name: VAGRANT-2008R2, NetBIOS user: &lt;unknown&gt;, NetBIOS MAC: 08:00:27:d7:cc:d8 (Oracle VirtualBox virtual NIC) </pre></td>
+</tr>
+<tr class="script">
+<td>smb2-time </td>
+<td><pre>
+  date: 2024-01-18T20:18:08
+  start_date: 2024-01-18T20:12:06 </pre></td>
+</tr>
+<tr class="script">
+<td>clock-skew </td>
+<td><pre>mean: 1h08m35s, deviation: 3h01m29s, median: 0s </pre></td>
+</tr>
+</table>
+<br><a href="javascript:toggle('metrics_192.168.56.102');">
+    Misc Metrics <span class="noprint"><small> (click to expand)</small></span></a><div id="metrics_192.168.56.102" class="hidden"><table cellspacing="1">
+<tr class="head">
+<td>Metric</td>
+<td>Value</td>
+</tr>
+<tr>
+<td>Ping Results</td>
+<td>arp-response</td>
+</tr>
+</table></div>
+</div>
+</div>
+<div id="menubox" class="noprint">
+<a href="#top"><small>Go to top</small></a><br><a href="javascript:toggleAll('closed');"><small>Toggle Closed Ports</small></a><br><a href="javascript:toggleAll('filtered');"><small>Toggle Filtered Ports</small></a>
+</div>
+</body>
+</html>
