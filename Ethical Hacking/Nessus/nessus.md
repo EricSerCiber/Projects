@@ -12,13 +12,9 @@
 
 # Indice
 
-- [**Escaneo de Vulnerabilidades con Nessus**](#escaneo-de-vulnerabilidades-con-nessus)
-- [Indice](#indice)
 - [Introducción](#introducción)
 - [Instalación y Configuración de Nessus](#instalación-y-configuración-de-nessus)
-      - [Iniciar Nessus](#iniciar-nessus)
 - [Demostración de uso](#demostración-de-uso)
-        - [Tipos de reporte:](#tipos-de-reporte)
 - [Comparativa de Nessus y OpenVAS](#comparativa-de-nessus-y-openvas)
 - [Conclusiones](#conclusiones)
 
