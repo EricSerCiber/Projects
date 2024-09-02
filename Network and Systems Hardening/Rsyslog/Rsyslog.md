@@ -20,13 +20,11 @@
 
 # Índice
 
-1. Introducción
-2. Guía de configuración
-2.1. Descripción del entorno
-2.2. Pruebas iniciales
-1. Configuración de nginx
-2. Registro de logs de Windows
-3. Conclusiones
+- [Introducción](#introducción)
+- [Guía de configuración](#guía-de-configuración)
+- [Configuración de nginx]
+- [Registro de logs de Windows]
+- [Conclusiones]
 
 </div>
 
