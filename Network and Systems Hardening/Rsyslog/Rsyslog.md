@@ -22,17 +22,18 @@
 
 - [Introducción](#introducción)
 - [Guía de configuración](#guía-de-configuración)
-- [Configuración de nginx]
-- [Registro de logs de Windows]
-- [Conclusiones]
+- [Configuración de Nginx](#configuración-de-nginx)
+- [Script de Seguridad para la Gestión de Logs](#script-de-seguridad-para-la-gestión-de-logs)
+- [Registro de logs de Windows](#registro-de-logs-de-windows)
+- [Conclusiones](#conclusiones)
 
 </div>
 
-# 1. Introducción
+# Introducción
 
 <p>Este proyecto se centra en configurar Rsyslog para gestionar registros de eventos. Incluye la configuración del entorno, pruebas de funcionamiento, y la integración con Nginx para la gestión de logs web. Además, se analizarán los registros de Windows y se desarrollará un script para copiar temporalmente los archivos access y error, comparándolos con las copias de seguridad anteriores. El objetivo es asegurar una gestión eficiente y precisa de los archivos de registro.</p>
 
-# 2. Guía de Configuración
+# Guía de Configuración
 
 <p>En nuestro entorno existen dos contenedores con Rsyslog preconfigurado para realizar logs remotos. 
 Nuestro contenedor srv es quien hará de servidor centralizado de logs y el contenedor cli, será el cliente.
@@ -63,7 +64,7 @@ Nuestro contenedor srv es quien hará de servidor centralizado de logs y el cont
 
 <p>Podemos observar que ha llegado el mensaje correctamente.</p>
 
-# 3. Configuración de Nginx
+# Configuración de Nginx
 
 <p>Configuraremos un servidor Nginx para que los logs se registren en el servidor de logs.</p>
 
@@ -104,7 +105,7 @@ Prueba del funcionamiento en gif: **https://imgur.com/XE7GsKv**
 
 Prueba del funcionamiento en gif: **https://imgur.com/Khk7Pxr**
 
-# 4. Script de Seguridad para la Gestión de Logs
+# Script de Seguridad para la Gestión de Logs
 
 ```sh
 #!/bin/sh
