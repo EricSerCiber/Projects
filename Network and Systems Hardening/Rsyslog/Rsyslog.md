@@ -2,12 +2,6 @@
 
 # **Rsyslog**
 
----
-
-### **Bastionado de Redes y Sistemas**
-
----
-
 ![Imagen de Portada](../Rsyslog/Images/Rsyslog1.png)
 
 ---
